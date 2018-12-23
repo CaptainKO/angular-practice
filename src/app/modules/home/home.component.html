@@ -1,0 +1,14 @@
+<home-carousel [images]="images"></home-carousel>
+
+<div class="container">
+  <h1 class="my-3">Welcome to Modern Business</h1>
+  <div class="row">
+    <info-card [infoCard]="card" class="col-lg-4 col-12 mb-4" *ngFor="let card of infoCards"></info-card>
+  </div>
+  <h2>Portfolio Heading</h2>
+  <div class="row">
+    <project-card [projectCard]="card" 
+                  *ngFor="let card of projectCards"
+                  class="col-lg-4 col-12 mb-4"></project-card>
+  </div>
+</div>
