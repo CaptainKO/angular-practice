@@ -1,12 +1,26 @@
 <div class="container">
   <div class="login-page mx-auto">
-      <div class="form">
-          <form class="login-form">
-            <input type="text" placeholder="username"/>
-            <input type="password" placeholder="password"/>
-            <button class="btn btn-default">login</button>
-            <p class="message">Not registered? <a routerLink="/user/signin">Create an account</a></p>
-          </form>
-        </div>
+    <div class="alert-danger"> {{message}}</div>
+    <div class="form">
+      <div class="form-group">
+        <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
+          <input type="text" placeholder="username" formControlName="username">
+          <div *ngIf="username.invalid && (username.touched || username.dirty)">
+            <div class="alert-danger" *ngIf="user||(username.errors.required)">
+              The username can't be left blank.
+            </div>
+          </div>
+          <input type="password" placeholder="password" formControlName="password">
+          <div *ngIf="password.invalid && (password.touched || password.dirty)">
+            <div class="alert-danger" *ngIf="pass||(password.errors.required)">
+              The password can't be left blank.
+            </div>
+          </div>
+          <button class="btn btn-default" [disabled]="loginForm.invalid">Login</button>
+          <p class="message">Not registered? <a routerLink="/user/signin">Create an account</a></p>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
+{{ loginForm.status | json }}
