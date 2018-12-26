@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { UserService } from "@core/services/user.service";
+
+
 
 @Component({
   selector: 'app-header',
@@ -11,9 +13,16 @@ export class HeaderComponent implements OnInit {
   public toggleCollapse() {
     this.isCollapsed = !this.isCollapsed;
   }
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
 
+  logout() {
+    this.userService.logout();
+  }
+
+  isLoggedIn() {
+    return this.userService.isLoggedIn();
+  }
 }

@@ -54,8 +54,13 @@
             User
           </a>
           <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownUser" ngbDropdownMenu>
-            <a routerLink="/user/login" class="dropdown-item">Log in</a>
-            <a routerLink="/user/signin" class="dropdown-item">Sign in</a>
+            <ng-container *ngIf="isLoggedIn(); else signin;">
+              <a routerLink="/home" class="dropdown-item" (click)="logout()">Logout</a>
+            </ng-container>
+            <ng-template  #signin>
+                <a routerLink="/user/login" class="dropdown-item">Log in</a>
+            </ng-template>
+            <a *ngIf="!isLoggedIn()" routerLink="/user/signin" class="dropdown-item">Sign in</a>
             <a routerLink="/user/profile" class="dropdown-item">Profile</a>
             <a  class="dropdown-item">Settings</a>
           </div>
