@@ -1,8 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from '@angular/core';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbDropdownModule, NgbCollapseModule } from "@ng-bootstrap/ng-bootstrap";
 import { HashLocationStrategy, PathLocationStrategy, LocationStrategy } from '@angular/common';
 
+
+import { UserService } from "./core/services/user.service";
+import { AuthGuard } from "@core/guards/auth.guard";
+import { AuthInterceptor } from '@core/interceptors/auth.interceptor';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,12 +23,24 @@ import { FooterComponent } from './core/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    NgbModule,
+    HttpClientModule,
+    NgbDropdownModule,
+    NgbCollapseModule,
     AppRoutingModule
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: LocationStrategy,
+      useClass: PathLocationStrategy
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    UserService,
+    AuthGuard
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
