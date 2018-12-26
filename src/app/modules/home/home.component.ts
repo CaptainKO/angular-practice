@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { InfoCard } from "../../shared/components/cards/info-card/info-card";
-import { ProjectCard } from "../../shared/components/cards/project-card/project-card";
+import { InfoCard } from "@shared/components/cards/info-card/info-card";
+import { Project } from "@shared/model/project";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,7 +10,7 @@ import { ProjectCard } from "../../shared/components/cards/project-card/project-
 export class HomeComponent implements OnInit {
   public images: any[] = [1, 2, 3];
   public infoCards: InfoCard[];
-  public projectCards: ProjectCard[];
+  public projectCards: Project[];
   constructor() { }
 
   ngOnInit() {
@@ -33,12 +33,12 @@ export class HomeComponent implements OnInit {
 
   loadProjectCard() {
     this.projectCards = [
-      new ProjectCard('Project 1', 'http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home'),
-      new ProjectCard('Project 2', 'http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home'),
-      new ProjectCard('Project 3', 'http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home'),
-      new ProjectCard('Project 4', 'http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home'),
-      new ProjectCard('Project 5', 'http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home'),
-      new ProjectCard('Project 6', 'http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home')
+      new Project('Project 1', '1','http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home'),
+      new Project('Project 2', '1','http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home'),
+      new Project('Project 3', '1','http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home'),
+      new Project('Project 4', '1','http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home'),
+      new Project('Project 5', '1','http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home'),
+      new Project('Project 6', '1','http://via.placeholder.com/700x400', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!', '/home')
     ]
   }
 
