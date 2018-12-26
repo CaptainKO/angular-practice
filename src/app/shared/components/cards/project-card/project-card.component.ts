@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProjectCard } from "./project-card";
+import { Project } from "@shared/model/project";
 
 
 @Component({
@@ -18,7 +18,7 @@ import { ProjectCard } from "./project-card";
   styles: ['']
 })
 export class ProjectCardComponent implements OnInit {
-  @Input() public projectCard: ProjectCard;
+  @Input() public projectCard: Project;
   constructor() { }
 
   ngOnInit() {
