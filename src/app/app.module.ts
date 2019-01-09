@@ -10,23 +10,27 @@ import { AuthGuard } from "@core/guards/auth.guard";
 import { AuthInterceptor } from '@core/interceptors/auth.interceptor';
 
 
+import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { ProjectCardComponent } from "@shared/components/cards/project-card/project-card.component";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
-  ],
+    FooterComponent  ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbDropdownModule,
     NgbCollapseModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+
   ],
   providers: [
     { provide: LocationStrategy,
@@ -41,6 +45,7 @@ import { FooterComponent } from './core/footer/footer.component';
     AuthGuard
   ],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [ProjectCardComponent]
 })
 export class AppModule { }

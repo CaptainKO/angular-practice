@@ -56,7 +56,11 @@
           <ng-template ngbTabTitle>
             <span class="tab-title"><h4>Projects</h4></span>
           </ng-template>
-          <ng-template ngbTabContent></ng-template>
+          <ng-template ngbTabContent>
+            <div class="text-center" [hidden]="loading"><app-loading></app-loading></div>
+            <div class="container-fluid py-3"><button class="btn btn-default">Add Project</button></div>
+            <project-list (onload)="offLoading()"></project-list>
+          </ng-template>
         </ngb-tab>
       </ngb-tabset>
       <!--/tab-pane-->

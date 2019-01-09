@@ -11,7 +11,13 @@ import { ProfileComponent } from "./pages/profile/profile.component";
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signin', component: SigninComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
+  {
+    path: 'profile', children: [
+      {
+        path: '', pathMatch: 'full', component: ProfileComponent
+      }
+    ], canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

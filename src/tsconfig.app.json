@@ -9,7 +9,8 @@
       "@core/*": ["app/core/*"],
       "@services/*": ["app/core/services/*"],
       "@modules/*": ["app/modules/*"],
-      "@shared/*": ["app/shared/*"]
+      "@shared/*": ["app/shared/*"],
+      "@env/*": ["environments/*"]
     }
   },
   "exclude": [

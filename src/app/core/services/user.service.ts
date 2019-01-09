@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { environment as env } from '@app/../environments/environment';
 
 import { Observable } from "rxjs/Observable";
 import { UserStoreService } from './user-store.service';
@@ -14,14 +15,14 @@ export class UserService {
               ) { }
 
   register(username: string, password: string): Observable<any> {
-    return this.http.post('/api/user/register', {
+    return this.http.post(env.apiUrl + 'user/register', {
       username: username,
       password: password
     });
   }
 
   login(username: string, password: string):Observable<any> {
-    return this.http.post('/api/user/login', {
+    return this.http.post(env.apiUrl + 'user/login', {
       username: username,
       password: password
     });

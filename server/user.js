@@ -4,6 +4,44 @@ const jwt = require('jsonwebtoken');
 
 var users = {};
 
+const projects = [{
+  title: 'Google',
+  content: 'Fugiat nulla in duis occaecat minim exercitation magna id labore.',
+  imgUrl: 'https://via.placeholder.com/700x400',
+  projectUrl: null
+},
+{
+  title: 'Facebook',
+  content: 'Fugiat nulla in duis occaecat minim exercitation magna id labore.',
+  imgUrl: 'https://via.placeholder.com/700x400',
+  projectUrl: null
+},
+{
+  title: 'Apple',
+  content: 'Fugiat nulla in duis occaecat minim exercitation magna id labore.',
+  imgUrl: 'https://via.placeholder.com/700x400',
+  projectUrl: null
+},
+{
+  title: 'Pewdiepie',
+  content: 'Fugiat nulla in duis occaecat minim exercitation magna id labore.',
+  imgUrl: 'https://via.placeholder.com/700x400',
+  projectUrl: null
+},
+{
+  title: 'H20Delirious',
+  content: 'Fugiat nulla in duis occaecat minim exercitation magna id labore.',
+  imgUrl: 'https://via.placeholder.com/700x400',
+  projectUrl: null
+},
+{
+  title: 'Cartoonz',
+  content: 'Fugiat nulla in duis occaecat minim exercitation magna id labore.',
+  imgUrl: 'https://via.placeholder.com/700x400',
+  projectUrl: null
+}
+];
+
 router.post('/register', (req, res) => {
   var user = req.body;
   console.log(req.body);
@@ -23,12 +61,12 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
   var user = req.body;
-  console.log(req.get('X-AUTH-HEADER'));
   if (users[user.username] && users[user.username] === user.password) {
     return res.status(200).json({
       msg: 'You have logged in successfully!',
       token: jwt.sign({
-        user: user.username
+        user: user.username,
+        secret: 'magic'
       }, 'SECRET')
     });
   } else {
@@ -37,4 +75,19 @@ router.post('/login', (req, res) => {
     });
   };
 });
+
+router.get('/projects/list', (req, res, next) => {
+  var decoded = jwt.decode(req.get(('X-AUTH-HEADER')));
+  console.log(decoded, decoded.user);
+  if (decoded.secret === 'magic') {
+   return next();
+  }
+  return res.status(400).json({
+    msg: 'Please Login!'
+  });
+
+}, (req, res) => {
+  res.status(200).json(projects);
+})
+
 module.exports = router;

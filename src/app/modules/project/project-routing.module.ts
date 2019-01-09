@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CreateProjectComponent } from "./pages/create-project/create-project.component";
 
 const routes: Routes = [
+  {path: '', redirectTo: 'create-project', pathMatch: 'full'},
   { path: 'create-project', component: CreateProjectComponent },
 ];
 

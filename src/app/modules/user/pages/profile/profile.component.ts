@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbTabsetModule } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-profile',
@@ -7,10 +6,15 @@ import { NgbTabsetModule } from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  loading = true;
+  constructor(
+  ) {
 
-  constructor() { }
+  }
 
   ngOnInit() {
   }
-
+  offLoading($event) {
+    this.loading = false;
+  }
 }

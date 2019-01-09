@@ -5,12 +5,11 @@
       <input class="form-control"
              type="text"
              name="title"
-             #lol
              #projectTitle="ngModel"
              [(ngModel)]="project.title"
              required
              minlength="3">
-      <div *ngIf="projectTitle.errors && projectTitle.errors.required">Fuck you</div>
+      <div class="alert-danger" *ngIf="projectTitle.errors && projectTitle.errors.required">Title field is mandatory</div>
       <!-- #name="ngModel" to expose the value of Input -->
     </div>
     <div class="project-type">

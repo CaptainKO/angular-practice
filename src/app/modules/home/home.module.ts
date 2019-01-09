@@ -7,20 +7,20 @@ import { HomeComponent } from './home.component';
 import { HomeCarouselComponent } from './components/home-carousel/home-carousel.component';
 
 import { InfoCardComponent } from '../../shared/components/cards/info-card/info-card.component';
-import { ProjectCardComponent } from "../../shared/components/cards/project-card/project-card.component";
+import { SharedModule } from '@shared/shared.module';
+// import { ProjectCardComponent } from '@shared/components/cards/project-card/project-card.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     HomeCarouselComponent,
-    InfoCardComponent,
-    ProjectCardComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    SharedModule
   ]
 })
 export class HomeModule { }
