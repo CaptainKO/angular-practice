@@ -27,8 +27,8 @@ import { ProjectListComponent } from './components/project-list/project-list.com
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    UserRoutingModule,
-    NgbTabsetModule
+    NgbTabsetModule,
+    UserRoutingModule
   ]
 })
 export class UserModule { }
