@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validator, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { Project } from "@shared/model/project";
 
 @Component({
@@ -27,11 +27,34 @@ export class ProjectFormComponent implements OnInit {
     this.projectForm = this.fb.group({
       title: ['Your Project', [Validators.required, Validators.minLength(3)]],
       type: ['', Validators.required],
-      content: ['', [Validators.required, Validators.maxLength(10)]],
-
+      content: [this.types[0], [Validators.required, Validators.maxLength(10)]],
+      imgUrl: ['https://via.placeholder.com/700x400.jpg', [Validators.required, Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/)]],
+      projectUrl: ['https://www.google.com', [Validators.required]]
     })
   }
-  createProject(object: any) {
 
+  get title() {
+    return this.projectForm.get('title');
+  }
+
+  get type() {
+    return this.projectForm.get('type');
+  }
+
+  get content() {
+    return this.projectForm.get('content');
+  }
+
+  get imgUrl() {
+    return this.projectForm.get('imgUrl');
+  }
+
+  get projectUrl() {
+    return this.projectForm.get('projectUrl');
+  }
+
+
+  createProject(o: any) {
+    console.log(o);
   }
 }
