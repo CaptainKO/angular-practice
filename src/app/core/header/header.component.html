@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+<!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
     <a class="navbar-brand" routerLink="/home">Start Bootstrap</a>
     <button class="navbar-toggler" (click)="toggleCollapse()" type="button">
@@ -57,14 +57,92 @@
             <ng-container *ngIf="isLoggedIn(); else signin;">
               <a routerLink="/home" class="dropdown-item" (click)="logout()">Logout</a>
             </ng-container>
-            <ng-template  #signin>
-                <a routerLink="/user/login" class="dropdown-item">Log in</a>
+            <ng-template #signin>
+              <a routerLink="/user/login" class="dropdown-item">Log in</a>
             </ng-template>
             <a *ngIf="!isLoggedIn()" routerLink="/user/signin" class="dropdown-item">Sign in</a>
             <a routerLink="/user/profile" class="dropdown-item">Profile</a>
-            <a  class="dropdown-item">Settings</a>
+            <a class="dropdown-item">Settings</a>
           </div>
         </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+
+    <!-- container -->
+
+    <a class="navbar-brand" routerLink="/home">Start Bootstrap</a>
+    <button class="navbar-toggler" (click)="toggleCollapse()" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse nav-sidebar pt-3 pl-4" [ngClass]="addClass">
+
+      <!-- Url Starts -->
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" id="dropdownPortfolio" ngbDropdownToggle>
+            Portfolio
+          </a>
+          <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownPortfolio">
+            <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
+            <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
+            <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
+            <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
+            <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" id="dropDownBlog" ngbDropdownToggle>
+            Blog
+          </a>
+          <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBlog">
+            <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
+            <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
+            <a class="dropdown-item" href="blog-post.html">Blog Post</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" id="dropdownBlog" ngbDropdownToggle>
+            Other Pages
+          </a>
+          <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBlog">
+            <a class="dropdown-item" href="full-width.html">Full Width Page</a>
+            <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
+            <a class="dropdown-item" href="faq.html">FAQ</a>
+            <a class="dropdown-item" href="404.html">404</a>
+            <a class="dropdown-item" href="pricing.html">Pricing Table</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a class="nav-link dropdown-toggle" id="dropdownUser" ngbDropdownToggle>
+            User
+          </a>
+          <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownUser" ngbDropdownMenu>
+            <ng-container *ngIf="isLoggedIn(); else signin;">
+              <a routerLink="/home" class="dropdown-item" (click)="logout()">Logout</a>
+            </ng-container>
+            <ng-template #signin>
+              <a routerLink="/user/login" class="dropdown-item">Log in</a>
+            </ng-template>
+            <a *ngIf="!isLoggedIn()" routerLink="/user/signin" class="dropdown-item">Sign in</a>
+            <a routerLink="/user/profile" class="dropdown-item">Profile</a>
+            <a class="dropdown-item">Settings</a>
+          </div>
+        </li>
+        <!-- url ends -->
       </ul>
     </div>
   </div>

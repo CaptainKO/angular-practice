@@ -12,23 +12,22 @@ import { AuthInterceptor } from '@core/interceptors/auth.interceptor';
 
 import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
+import { HeaderModule } from '@core/header/header.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
-import { ProjectCardComponent } from "@shared/components/cards/project-card/project-card.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent  ],
+    FooterComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbDropdownModule,
-    NgbCollapseModule,
     AppRoutingModule,
+    HeaderModule,
+
     SharedModule,
 
   ],
@@ -45,7 +44,6 @@ import { ProjectCardComponent } from "@shared/components/cards/project-card/proj
     AuthGuard
   ],
 
-  bootstrap: [AppComponent],
-  exports: [ProjectCardComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
