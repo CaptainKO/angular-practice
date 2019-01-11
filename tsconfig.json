@@ -8,7 +8,8 @@
       "@modules/*": ["app/modules/*"],
       "@shared/*": ["app/shared/*"],
       "@app/*": ["app/*"],
-      "@env/*": ["environments/*"]
+      "@env/*": ["environments/*"],
+      "@assets/*": ["assets/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
