@@ -5,12 +5,13 @@
     "types": [],
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["app/*"],
-      "@core/*": ["app/core/*"],
       "@services/*": ["app/core/services/*"],
+      "@core/*": ["app/core/*"],
       "@modules/*": ["app/modules/*"],
       "@shared/*": ["app/shared/*"],
-      "@env/*": ["environments/*"]
+      "@app/*": ["app/*"],
+      "@env/*": ["environments/*"],
+      "@assets/*": ["assets/*"]
     }
   },
   "exclude": [
