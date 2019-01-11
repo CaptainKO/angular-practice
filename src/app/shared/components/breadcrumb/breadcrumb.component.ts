@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { distinctUntilChanged, filter, map } from "rxjs/operators";
 
-import { BreadCrumb } from "./breadcrumb";
+import { BreadCrumb } from "./breadcrumb.d";
 
 @Component({
   selector: 'breadcrumb',
