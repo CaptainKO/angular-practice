@@ -1,16 +1,17 @@
-<div class="form-group">
+<!-- <div class="form-group">
   <form (ngSubmit)="createProject(projectForm)" #projectForm="ngForm">
     <div class="project-title">
       <label class="block" for="title">Title</label>
       <input class="form-control"
              type="text"
              name="title"
+             #lol
              #projectTitle="ngModel"
              [(ngModel)]="project.title"
              required
              minlength="3">
       <div class="alert-danger" *ngIf="projectTitle.errors && projectTitle.errors.required">Title field is mandatory</div>
-      <!-- #name="ngModel" to expose the value of Input -->
+      #name="ngModel" to expose the value of Input
     </div>
     <div class="project-type">
       <label for="type">Type</label>
@@ -20,4 +21,61 @@
     </div>
   </form>
 </div>
-<p>Class {{lol.className}}</p>
+<p>Class {{lol.className}}</p> -->
+<div class="form-group">
+  <form [formGroup]="projectForm" (ngSubmit)="createProject(projectForm)">
+    <div class="title">
+      <label class="block" for="title">Title</label>
+      <input
+
+            type="text"
+            class="form-control"
+            name="title"
+            formControlName="title">
+      <div *ngIf="(title.invalid && (title.dirty || title.touched))" class="alert alert-danger">
+        <div *ngIf="title.errors.required">
+          Title is mandatory
+        </div>
+        <div *ngIf="title.errors.minlength">
+          Title has to be more than 2 characters
+        </div>
+      </div>
+    </div>
+    <div class="type">
+      <label for="type">Type</label>
+      <select  class="form-control" name="type" formControlName="type">
+        <option selected *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>
+      <div *ngIf="(type.invalid && type.touched)" class="alert alert-danger">
+          The type of Project is mandatory
+      </div>
+    </div>
+    <div class="content">
+      <label for="content">content</label>
+      <textarea formControlName="content" class="form-control" name="content"></textarea>
+      <div *ngIf="(content.invalid && (content.dirty || content.touched))" class="alert alert-danger">
+        <div *ngIf="content.errors.required">
+          Content is required
+        </div>
+      </div>
+    </div>
+    <div class="img-url">
+      <label for="imgUrl">Image Url</label>
+      <input #lol class="form-control" type="text" name="img-url" formControlName="imgUrl">
+      <div class="alert alert-danger" *ngIf="(imgUrl.invalid && (imgUrl.dirty || imgUrl.touched))">
+        <div *ngIf="imgUrl.errors.required">
+          Image Url is required;
+        </div>
+        <div *ngIf="imgUrl.errors.pattern">
+          Please provide a formated link for images (jpeg | png | gif);
+        </div>
+      </div>
+    </div>
+    <div class="project-url">
+      <label for="project-url">Project Link</label>
+      <input class="form-control" type="text" name="project-url" formControlName="projectUrl">
+    </div>
+    <button [disabled]="!projectForm.valid" type="submit" class="btn btn-primary">Create Project</button>
+  </form>
+</div>
+{{lol.className}}
